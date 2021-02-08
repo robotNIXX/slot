@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="py-10 px-10 text-center">
-                    <a class="py-10 bg-pink-400" href="{{ route('prizes.get') }}">Select you prize</a>
+                    Selected prize is:
                 </div>
             </div>
         </div>

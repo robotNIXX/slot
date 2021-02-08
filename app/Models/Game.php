@@ -22,4 +22,11 @@ class Game extends Model
         'min_bonus_prize',
         'max_bonus_prize',
     ];
+
+    public function prizes()
+    {
+        return $this->hasMany(UserPrize::class, 'game_id');
+    }
+
+
 }

@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::group(['prefix' => 'user/prizes', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::get('/random', 'App\Http\Controllers\PrizesController@get')->name('prizes.get');
+});
