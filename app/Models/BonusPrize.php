@@ -25,6 +25,6 @@ class BonusPrize extends Model
      */
     public function userPrize()
     {
-        return $this->morphMany(UserPrize::class, 'awarded');
+        return $this->morphToMany(UserPrize::class, 'awarded');
     }
 }

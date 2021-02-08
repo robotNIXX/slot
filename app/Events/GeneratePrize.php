@@ -3,6 +3,8 @@
 namespace App\Events;
 
 use App\Enums\PrizeType;
+use App\Models\Game;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -18,12 +20,24 @@ class GeneratePrize
     public $type;
 
     /**
+     * @var Game
+     */
+    public $game;
+
+    /**
+     * @var User
+     */
+    public $user;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Game $game, User $user)
     {
         $this->type = random_int(PrizeType::Cash, PrizeType::Bonus);
+        $this->game = $game;
+        $this->user = $user;
     }
 }

@@ -23,8 +23,9 @@ class CashPrize extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
+
     public function userPrize()
     {
-        return $this->morphMany(UserPrize::class, 'awarded');
+        return $this->morphToMany(UserPrize::class, 'awarded');
     }
 }

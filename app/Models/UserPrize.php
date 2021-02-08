@@ -23,12 +23,27 @@ class UserPrize extends Model
     ];
 
     /**
-     * Prize
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
-    public function awarded()
+    public function cashPrizes()
     {
-        return $this->morphTo();
+        return $this->morphToMany(CashPrize::class, 'awarded');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function bonusPrizes()
+    {
+        return $this->morphToMany(BonusPrize::class, 'awarded');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function physicalPrizes()
+    {
+        return $this->morphToMany(PhysicalPrize::class, 'awarded');
     }
 
     /**

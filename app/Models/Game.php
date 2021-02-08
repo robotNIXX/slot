@@ -28,5 +28,8 @@ class Game extends Model
         return $this->hasMany(UserPrize::class, 'game_id');
     }
 
-
+    public function physicalPrizes()
+    {
+        return $this->hasManyThrough(PhysicalPrize::class, PhysicalObject::class, 'id', 'object_id');
+    }
 }

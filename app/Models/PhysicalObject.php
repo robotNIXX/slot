@@ -24,4 +24,9 @@ class PhysicalObject extends Model
     {
         return $this->belongsTo(Game::class, 'game_id');
     }
+
+    public function prizes()
+    {
+        return $this->hasOne(PhysicalPrize::class, 'object_id');
+    }
 }
