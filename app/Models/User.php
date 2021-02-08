@@ -58,4 +58,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function prizes()
+    {
+        return $this->hasMany(UserPrize::class)->orderBy('created_at', 'DESC');
+    }
 }

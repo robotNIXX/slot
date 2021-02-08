@@ -24,10 +24,10 @@ class PhysicalPrize extends Model
      */
     public function userPrize()
     {
-        return $this->morphToMany(UserPrize::class, 'awarded');
+        return $this->morphOne(UserPrize::class, 'awarded');
     }
 
-    public function physicalObjects()
+    public function physicalObject()
     {
         return $this->belongsTo(PhysicalObject::class, 'object_id');
     }

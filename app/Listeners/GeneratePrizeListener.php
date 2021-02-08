@@ -50,7 +50,7 @@ class GeneratePrizeListener
                     'game_id' => $event->game->id,
                     'user_id' => $event->user->id,
                     'awarded_id' => $bonusPrize->id,
-                    'awarder_type' => BonusPrize::class,
+                    'awarded_type' => BonusPrize::class,
                     'details' => ''
                 ]);
                 break;
@@ -66,7 +66,7 @@ class GeneratePrizeListener
                             'game_id' => $event->game->id,
                             'user_id' => $event->user->id,
                             'awarded_id' => $phPrize->id,
-                            'awarder_type' => PhysicalPrize::class,
+                            'awarded_type' => PhysicalPrize::class,
                             'details' => ''
                         ]);
                     }
@@ -83,7 +83,7 @@ class GeneratePrizeListener
                         'game_id' => $event->game->id,
                         'user_id' => $event->user->id,
                         'awarded_id' => $cPrize->id,
-                        'awarder_type' => CashPrize::class,
+                        'awarded_type' => CashPrize::class,
                         'details' => ''
                     ]);
 

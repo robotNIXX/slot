@@ -16,6 +16,15 @@ class PrizesController extends Controller
 
         GeneratePrize::dispatch($game, $user);
 
-        return view('prizes.select');
+        return redirect()->route('prizes.list');
+    }
+
+    public function index()
+    {
+        $user = \Auth::user();
+
+        $prizes = $user->prizes;
+
+        return view('prizes.list', ['prizes' => $prizes]);
     }
 }

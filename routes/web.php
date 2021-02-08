@@ -23,4 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'user/prizes', 'middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/random', 'App\Http\Controllers\PrizesController@get')->name('prizes.get');
+    Route::get('/', 'App\Http\Controllers\PrizesController@index')->name('prizes.list');
 });

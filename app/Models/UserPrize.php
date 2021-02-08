@@ -18,32 +18,14 @@ class UserPrize extends Model
         'game_id',
         'user_id',
         'awarded_id',
-        'awarder_type',
-        'details'
+        'awarded_type',
+        'details',
+        'status'
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function cashPrizes()
+    public function awarded()
     {
-        return $this->morphToMany(CashPrize::class, 'awarded');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function bonusPrizes()
-    {
-        return $this->morphToMany(BonusPrize::class, 'awarded');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function physicalPrizes()
-    {
-        return $this->morphToMany(PhysicalPrize::class, 'awarded');
+        return $this->morphTo();
     }
 
     /**
@@ -62,5 +44,10 @@ class UserPrize extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function history()
+    {
+        return $this->hasMany(UserPrizeHistory::class, 'prize_id');
     }
 }
